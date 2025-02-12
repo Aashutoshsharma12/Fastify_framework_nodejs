@@ -1,5 +1,5 @@
 // import { messages } from "@Custom_message";
-import userModel from "../../models/user";
+import { userModel } from "@models/index";
 import moment from "moment-timezone";
 import mongoose from "mongoose";
 const ObjectId = mongoose.Types.ObjectId

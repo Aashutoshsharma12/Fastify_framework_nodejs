@@ -3,7 +3,6 @@ import { io } from '../index'
 export default async (fastify: any) => {
     const nsp = io.of("/chat"); // Define the namespace
     nsp.on("connection", (socket: any) => {
-        console.log("User connected:", socket.id);
 
         socket.on("join_room", (data: any) => {
             socket.join(data.roomId);

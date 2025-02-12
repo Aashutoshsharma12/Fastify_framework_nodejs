@@ -1,3 +1,4 @@
+import 'tsconfig-paths/register';  //Use this for sortcut path inside tsconfig.json
 import "./pre-start"; // Must be the first import
 import Fastify, { FastifyError, FastifyReply, FastifyRequest } from 'fastify';
 import path, { join } from "path";

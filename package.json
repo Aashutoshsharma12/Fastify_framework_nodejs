@@ -10,7 +10,7 @@
     "remove-previous-build": "rm -rf dist/",
     "copy-public": "cp -r src/public dist/public",
     "copy-pre-start": "cp -r src/pre-start/env dist/pre-start/env",
-    "start:dev": "nodemon -x ts-node src/index.ts --env development",
+    "start:dev": "nodemon -x ts-node   src/index.ts --env development",
     "start:prod": "nodemon -x ts-node src/index.ts --env production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -35,7 +35,8 @@
     "moment-timezone": "^0.5.47",
     "mongoose": "^8.10.0",
     "nodemon": "^3.1.9",
-    "socket.io": "^4.8.1"
+    "socket.io": "^4.8.1",
+    "tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
     "@fastify/autoload": "^6.1.0",
