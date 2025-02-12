@@ -9,12 +9,13 @@ const server_1 = __importDefault(require("./server"));
 const database_1 = __importDefault(require("./utils/database"));
 const socket_1 = __importDefault(require("./utils/socket"));
 // // Create a raw HTTP server for Fastify (since Fastify v5 doesn't support socket.io directly)
-server_1.default.listen({ port: 4001 }, (err, address) => {
+const PORT = process.env.PORT || 4001; // Use Render-assigned port or fallback
+server_1.default.listen({ port: PORT, host: '0.0.0.0' }, (err, address) => {
     if (err) {
         server_1.default.log.error(err);
         process.exit(1);
     }
-    console.log("🚀 Server running at http://localhost:4001");
+    console.log(`🚀 Server running at http://localhost:${PORT}`);
     (0, database_1.default)();
 });
 exports.io = new socket_io_1.Server(server_1.default.server, {
