@@ -32,10 +32,10 @@ fastify.setErrorHandler((error: FastifyError, request: any, reply: any) => {
     // Custom error response
     reply.status(error.statusCode || 500).send({
         success: false,
-        message: error.message || 'Internal Server Error',
+        message: error.message,
         error: error.message,
-        code: error.code || 'INTERNAL_ERROR',
-        statusCode: error.statusCode || 500
+        code: error.code,
+        statusCode: error.statusCode
     });
 });
 

@@ -15,8 +15,13 @@ export function authorizeRoles(allowedRoles: string[]) {
 }
 
 export async function generateToken(fastify: any, userId: string, role: string) {
-    if (!fastify.jwt) {
-        throw new Error("fastify.jwt is not available. Ensure fastify-jwt is registered.");
+    try {
+        if (!fastify.jwt) {
+            throw new Error("fastify.jwt is not available. Ensure fastify-jwt is registered.");
+        }
+        return fastify.jwt.sign({ id: userId, role }, { expiresIn: "10m" });
+    } catch (err) {
+        throw new Error(err);
     }
-    return fastify.jwt.sign({ id: userId, role }, { expiresIn: "10m" });
+
 }
